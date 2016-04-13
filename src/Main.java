@@ -23,18 +23,27 @@ import javafx.stage.Stage;
 public class Main extends Application{
 	Stage window = new Stage();
 	public static void main(String[] args){
+		//This statement connects the java code to the server
+		//Connections must always be surrounded with try/catch methods.
+
 		try {
 			Connection c = DBconnect.connect();
 			Statement stmt = c.createStatement();
+			//Write an SQL query
 			String SQL = "SELECT * FROM Location";
+			//Runs query inside database
 			ResultSet rs = stmt.executeQuery(SQL);
+			//rs.next selects the next row. 
 			rs.next();
+			//rs.getString gets the String on the row where the column is "Address"
 			String first = rs.getString("Address");
+			//prints it all out. 
 			System.out.println(first);
 
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
+		//Typical stuff.
 		launch(args);
 	}
 	@Override
