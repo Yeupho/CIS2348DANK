@@ -26,6 +26,8 @@ public class Main extends Application{
 		//This statement connects the java code to the server
 		//Connections must always be surrounded with try/catch methods.
 
+		//THIS TRY/CATCH REQUIRES YOU TO HAVE A TABLE CALLED LOCATION AND A COLUMN IN IT CALLED ADDRESS
+		//But you can edit the sql string to your specific needs if you want. :) 
 		try {
 			Connection c = DBconnect.connect();
 			Statement stmt = c.createStatement();
